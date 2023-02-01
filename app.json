@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "CafeteriaCMC",
-    "slug": "CafeteriaCMC",
+    "slug": "cafeteriacmc",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3efda6fe-532d-4ba1-9d83-6609cfecc1b8"
+      }
+    },
+    "owner": "simo672k"
   }
 }

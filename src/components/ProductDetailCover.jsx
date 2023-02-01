@@ -5,6 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 import LikeBtn from './LikeBtn';
 import Colors from '../constants/colors';
 import Title from './Title';
+import ProductPriceRate from './ProductPriceRate';
 
 export default function ProductDetailCover({img, liked}) {
   
@@ -21,6 +22,7 @@ export default function ProductDetailCover({img, liked}) {
         </Container>
         <View style={styles.cardHead}>
           <Title style={{color: Colors.primary}}>Cappucino</Title>
+          <ProductPriceRate price="15.00" rate="3.5" />
         </View>
       </ImageBackground>
     </View>
@@ -51,5 +53,8 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }
 })

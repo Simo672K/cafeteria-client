@@ -17,7 +17,8 @@ const styles= StyleSheet.create({
     borderRadius: 8
   },
   btnInner:{
-    paddingHorizontal: 12,
-    paddingVertical: 8
+    // paddingHorizontal: 12,
+    // paddingVertical: 12,
+    padding: 12,
   }
 })
