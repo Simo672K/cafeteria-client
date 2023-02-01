@@ -1,10 +1,10 @@
 import { View, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
 
-export default function RoundBtn({children}) {
+export default function RoundBtn({children, onPress}) {
   return (
     <View style={styles.btn}>
-      <Pressable android_ripple={{color:'white', borderless:true}} style={styles.btnInner}>
+      <Pressable onPress={onPress} android_ripple={{color:'white', borderless:true}} style={styles.btnInner}>
         {children}
       </Pressable>
     </View>
