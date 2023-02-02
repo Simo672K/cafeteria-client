@@ -8,7 +8,7 @@ import Card from './Card'
 
 export default function QuantityCard({linkTo}) {
   const handelPress=()=>{
-    linkTo.navigate('SuccessScreen')
+    linkTo.navigate('HomeScreen')
   }
   return (
     <Card>
