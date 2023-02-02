@@ -4,7 +4,10 @@ import Colors from '../constants/colors'
 import { Ionicons } from '@expo/vector-icons';
 import DefaultBtn from './DefaultBtn';
 
-export default function ProductCard({title,  price, description, liked}) {
+export default function ProductCard({title,  price, description, liked, linkTo}) {
+  const navigationHandler= ()=>{
+    linkTo.navigate('DetailScreen')
+  }
   return (
     <View style={styles.cardContainer}>
       {/* card head */}
@@ -26,7 +29,7 @@ export default function ProductCard({title,  price, description, liked}) {
         </View>
         <View style={styles.cardFooter}>
           <Text style={styles.cardPrice}>{price}</Text>
-          <DefaultBtn>Commander</DefaultBtn>
+          <DefaultBtn onPress={navigationHandler} >Commander</DefaultBtn>
         </View>
       </View>
     </View>

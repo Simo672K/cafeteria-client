@@ -8,7 +8,7 @@ import Colors from "../constants/colors";
 import Filter from "../components/Filter";
 import ProductCard from "../components/ProductCard";
 
-export default function Home() {
+export default function Home({navigation}) {
   let dummyText= "Lorem ipsum dolor sit amet, debitis obcaecati asperiores at."
   return (
     <View style={styles.home}>
@@ -26,7 +26,7 @@ export default function Home() {
             </RoundBtn>
           </View>
           <View style={styles.hero}>
-            <Title style={{color: 'white'}}>BIENVENUE!</Title>
+            <Title style={{color: 'white'}}>BIENVENUE</Title>
           </View>
           <View style= {styles.cardContainer}>
             <View style={styles.card}>
@@ -61,7 +61,7 @@ export default function Home() {
             </View>
             <View>
               <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                <ProductCard price='15.00' img={'../assets/images/card-placeholder.png'} title='Cappucino' description={dummyText}/>
+                <ProductCard linkTo={navigation} price='15.00' img={'../assets/images/card-placeholder.png'} title='Cappucino' description={dummyText}/>
                 <ProductCard price='15.00' img={'../assets/images/card-placeholder.png'} title='Cappucino' description={dummyText}/>
                 <ProductCard price='15.00' img={'../assets/images/card-placeholder.png'} title='Cappucino' description={dummyText}/>
                 <ProductCard price='15.00' img={'../assets/images/card-placeholder.png'} title='Cappucino' description={dummyText}/>

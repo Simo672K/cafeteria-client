@@ -5,12 +5,15 @@ import Colors from '../constants/colors'
 import BackBtn from '../components/BackBtn'
 import QRCodeDisplay from '../components/QRCodeDisplay'
 
-export default function Success() {
+export default function Success({navigation}) {
+  const returnHomeHandler= ()=>{
+    navigation.navigate('HomeScreen')
+  }
   return (
     <View style={styles.success}>
       <SafeAreaView style={styles.container}>
         <View style={styles.header}>
-          <BackBtn/>
+          <BackBtn mode='dark' onPress={returnHomeHandler}/>
         </View>
         <View style={styles.body}>
           <Title style={styles.text}>Merci Pour Votre Commande</Title>
@@ -18,7 +21,7 @@ export default function Success() {
           <Image source={require('../assets/images/check-circle.png')}/>
         </View>
       </SafeAreaView>
-      <StatusBar mode='light' />
+      <StatusBar style='light' />
     </View>
   )
 }
@@ -30,7 +33,7 @@ const styles= StyleSheet.create({
   },
   container:{
     flex: 1,
-    marginTop: 30,
+    marginTop: 40,
     paddingHorizontal: 24,
   },
   header:{},

@@ -7,14 +7,17 @@ import Colors from '../constants/colors';
 import Title from './Title';
 import ProductPriceRate from './ProductPriceRate';
 
-export default function ProductDetailCover({img, liked}) {
-  
+export default function ProductDetailCover({img, liked, linkTo}) {
+  const goBackHandler= ()=>{
+    linkTo.navigate('HomeScreen')
+  }
+
   return (
     <View style={styles.coverImageContainer}>
       <ImageBackground style={styles.coverImage} source={img} resizeMode="cover" imageStyle={styles.overlay}>
         <Container>
           <View style={styles.header}>
-            <RoundBtn>
+            <RoundBtn onPress={goBackHandler}>
               <AntDesign name="arrowleft" size={30} color="white" />
             </RoundBtn>
             <LikeBtn liked={true} size={30} color="white" />

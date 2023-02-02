@@ -1,14 +1,13 @@
-import { View, StyleSheet, Pressable} from 'react-native'
+import { StyleSheet } from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
+import RoundBtn from './RoundBtn';
 import Colors from '../constants/colors';
 
-export default function BackBtn() {
+export default function BackBtn({onPress, mode}) {
   return (
-    <View style={styles.btnContainer}>
-      <Pressable style={styles.btnInner} android_ripple={{color: '#aaa', borderless: true}}>
-        <AntDesign name="arrowleft" size={24} color={Colors.primary} />
-      </Pressable>
-    </View>
+    <RoundBtn onPress={onPress}>
+      <AntDesign name="arrowleft" size={24} color={(mode&&mode==='light')? Colors.primary: 'white'} />
+    </RoundBtn>
   )
 }
 

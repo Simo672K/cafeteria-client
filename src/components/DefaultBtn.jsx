@@ -1,10 +1,10 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import Colors from '../constants/colors'
 
-export default function DefaultBtn({children}) {
+export default function DefaultBtn({children, onPress}) {
   return (
     <View style={styles.btnContainer}>
-      <Pressable style={styles.btnInner} android_ripple={{color:"#aaa", borderless: true}}  >
+      <Pressable style={styles.btnInner} onPress={onPress} android_ripple={{color:"#aaa", borderless: true}}  >
         <Text style={{color: 'white', textAlign: 'center'}}>{children}</Text>
       </Pressable>
     </View>

@@ -4,10 +4,14 @@ import DefaultBtn from './DefaultBtn'
 import QuantityCardLabel from './QuantityCardLabel'
 import QuantityCounter from './QuantityCounter'
 import Colors from '../constants/colors'
+import Card from './Card'
 
-export default function QuantityCard() {
+export default function QuantityCard({linkTo}) {
+  const handelPress=()=>{
+    linkTo.navigate('SuccessScreen')
+  }
   return (
-    <View style={styles.quantityCard}>
+    <Card>
       <View style={styles.quantityCardHeader}>
         <QuantityCardLabel title="1 Cappucino" subTitle="15.00 DH"/>
         <QuantityCounter/>
@@ -16,10 +20,10 @@ export default function QuantityCard() {
         <Text style={styles.text}>Total de :</Text>
         <Text style={styles.total}>15.00 DH</Text>
       </View>
-      <DefaultBtn>
+      <DefaultBtn onPress={handelPress}>
         Commander
       </DefaultBtn>
-    </View>
+    </Card>
   )
 }
 
