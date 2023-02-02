@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import { View, StyleSheet, SafeAreaView, Text } from 'react-native'
 import BackBtn from '../components/BackBtn';
 import Card from '../components/Card';
@@ -37,6 +38,7 @@ export default function Checkout({navigation}) {
           </DefaultBtn>
         </Card>
       </SafeAreaView>
+      <StatusBar style='dark' />
     </View>
   )
 }

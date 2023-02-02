@@ -20,9 +20,12 @@ export default function Home({navigation}) {
         source={require("../assets/images/home.png")}
       >
         <Container>
-          <View>
+          <View style={{flexDirection: 'row', justifyContent:'space-between'}}>
             <RoundBtn>
               <Ionicons name="menu-outline" size={32} color="white" />
+            </RoundBtn>
+            <RoundBtn onPress={()=> navigation.navigate('CheckoutScreen')}>
+              <Ionicons name="basket" size={32} color="white" />
             </RoundBtn>
           </View>
           <View style={styles.hero}>
