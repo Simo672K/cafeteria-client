@@ -1,10 +1,16 @@
 import { StatusBar } from 'expo-status-bar'
+import { useEffect } from 'react'
 import { View, StyleSheet, ActivityIndicator} from 'react-native'
 import Container from '../components/Container'
 import Title from '../components/Title'
 import Colors from '../constants/colors'
 
-export default function Loading() {
+export default function Loading({navigation}) {
+  useEffect(()=>{
+    setTimeout(function(){
+      navigation.navigate('HomeScreen');
+    }, 3000)
+  }, [])
   return (
     <View style={styles.loading}>
       <Container>

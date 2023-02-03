@@ -22,8 +22,8 @@ export default function App() {
     <View style={styles.container}>
       <ImageBackground style={styles.bgImage} source={require("./src/assets/images/bg-pattern.png")} resizeMode='repeat' >
         <NavigationContainer theme={currentTheme}>
-          <Stack.Navigator screenOptions={{headerShown: false, headerBackground: null}}>
-            {/* <Stack.Screen name='LoadingSreen' component={Loading} /> */}
+          <Stack.Navigator screenOptions={{headerShown: false, headerBackground: null, freezeOnBlur: true}}>
+            <Stack.Screen name='LoadingSreen' component={Loading} />
             <Stack.Screen name='CheckoutScreen' component={Checkout} />
             <Stack.Screen name='HomeScreen' component={Home} />
             <Stack.Screen name='DetailScreen' component={Details} />

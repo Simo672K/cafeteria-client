@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, ImageBackground, Text, ScrollView } from "react-native";
+import { StyleSheet, View, ImageBackground, ScrollView } from "react-native";
 import Container from "../components/Container";
 import { Ionicons } from '@expo/vector-icons';
 import Title from "../components/Title";
@@ -25,7 +25,7 @@ export default function Home({navigation}) {
               <Ionicons name="menu-outline" size={32} color="white" />
             </RoundBtn>
             <RoundBtn onPress={()=> navigation.navigate('CheckoutScreen')}>
-              <Ionicons name="basket" size={32} color="white" />
+              <Ionicons name="cart" size={32} color="white" />
             </RoundBtn>
           </View>
           <View style={styles.hero}>
