@@ -6,16 +6,21 @@ import DetailDescription from '../components/DetailDescription.jsx'
 import QuantityCard from '../components/QuantityCard'
 
 export default function Details({navigation}) {
+  const data={
+    "id": Date.now(),
+    "title": "cappucino",
+    "description": "Lorem Ipsum has been the industry's It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "price": 15.00,
+    "faved": true, 
+  }
   const cover= require('../assets/images/detail-placeholder.png')
   return (
     <View style={styles.detail}>
-      <ProductDetailCover linkTo={navigation} img={cover}/>
+      <ProductDetailCover linkTo={navigation} liked={data.faved} title={data.title} img={cover}/>
       <View style={styles.main}>
         <Text style={styles.tabNav}>Detail</Text>
-        <DetailDescription>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias fugit tempore nihil possimus nam! Soluta nobis sapiente fugit itaque quam vitae voluptatum laudantium voluptatibus, quasi quisquam, mollitia blanditiis in natus suscipit eveniet accusantium sed deleniti, sunt nulla iusto obcaecati. Unde temporibus possimus laudantium commodi qui labore suscipit aliquam id eos!
-        </DetailDescription>
-        <QuantityCard linkTo={navigation}/>
+        <DetailDescription>{data.description}</DetailDescription>
+        <QuantityCard data={data} linkTo={navigation}/>
       </View>
       <StatusBar style='light'/>
     </View>

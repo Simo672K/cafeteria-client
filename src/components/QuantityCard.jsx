@@ -1,20 +1,32 @@
-import {useState} from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { useState } from 'react'
 import DefaultBtn from './DefaultBtn'
 import QuantityCardLabel from './QuantityCardLabel'
 import QuantityCounter from './QuantityCounter'
 import Colors from '../constants/colors'
 import Card from './Card'
+import {addToCart} from '../context/cartSlice'
+import { useDispatch } from 'react-redux'
 
-export default function QuantityCard({linkTo}) {
+export default function QuantityCard({linkTo, data}) {
+  const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1)
+
+ 
   const handelPress=()=>{
+    const payload={
+      ...data,
+      quantity
+    }
+
+    dispatch(addToCart(payload))
     linkTo.navigate('HomeScreen')
   }
   return (
     <Card>
       <View style={styles.quantityCardHeader}>
         <QuantityCardLabel title="1 Cappucino" subTitle="15.00 DH"/>
-        <QuantityCounter/>
+        <QuantityCounter quantity={quantity} setQuantity={setQuantity}/>
       </View>
       <View style={styles.quantityCardMain}>
         <Text style={styles.text}>Total de :</Text>

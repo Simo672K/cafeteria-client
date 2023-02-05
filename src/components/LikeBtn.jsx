@@ -4,11 +4,9 @@ import RoundBtn from "./RoundBtn";
 
 export default function LikeBtn({ favorite, color, size }) {
   const [isFavorite, setIsFavorite] = useState(favorite);
-
   const handelFavorite= () => {
     setIsFavorite(prev=> !prev)
   }
-
   return (
     <RoundBtn onPress={handelFavorite}>
       {isFavorite ? (

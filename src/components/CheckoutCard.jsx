@@ -1,8 +1,16 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import CheckoutCardDelete from './CheckoutCardDelete'
 import Colors from '../constants/colors'
+import { removeFromCart } from '../context/cartSlice'
+import { useDispatch } from 'react-redux'
 
-export default function CheckoutCard() {
+export default function CheckoutCard({item}) {
+  const dispatch = useDispatch();
+
+  const cartItemDeleteHandler = ()=>{
+    dispatch(removeFromCart(item.id))
+  }
+  
   return (
     <View style={styles.checkoutCard}>
       <View style={styles.imageContainer}>
@@ -10,10 +18,10 @@ export default function CheckoutCard() {
       </View>
       <View style={styles.descriptionContainer}>
         <View style={styles.checkoutCardClose}>
-          <CheckoutCardDelete />
+          <CheckoutCardDelete onPress={cartItemDeleteHandler} />
         </View>
-        <Text style={styles.cardTitle}>1 Cappuchino x 1</Text>
-        <Text style={styles.cardText}>15.00 DH</Text>
+        <Text style={styles.cardTitle}>1 {item.title} x {item.quantity}</Text>
+        <Text style={styles.cardText}>{item.price} DH</Text>
       </View>
     </View>
   )

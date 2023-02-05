@@ -6,8 +6,10 @@ import Colors from '../constants/colors';
 import DefaultBtn from '../components/DefaultBtn';
 import Title from '../components/Title';
 import CheckoutCard from '../components/CheckoutCard';
-
+import { useSelector } from 'react-redux';
 export default function Checkout({navigation}) {
+  const cart = useSelector((state)=> state.cart.cart)
+
   const returnHomeHandler=()=>{
     navigation.navigate('HomeScreen')
   }
@@ -23,10 +25,13 @@ export default function Checkout({navigation}) {
         </View>
         <View style={styles.checkoutMainContent}>
           <Title style={{color: Colors.primary, marginTop: 40, marginBottom: 30}}>Votre Commande</Title>
-          <CheckoutCard />
-          <CheckoutCard />
-          <CheckoutCard />
-          <CheckoutCard />
+          {
+            cart&&cart.length?
+            cart.map(item=>
+              <CheckoutCard key={Date.now()} item={item}/>
+              ):
+            <Text style={styles.textMuted}>Pas d'elements...</Text>
+          }
         </View>
         <Card>
           <View style={styles.cardHeader}>
@@ -74,4 +79,9 @@ const styles= StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold'
   },
+  textMuted:{
+    color: Colors.filter,
+    fontSize: 18,
+    padding: 8,
+  }
 })

@@ -1,18 +1,15 @@
 import { StyleSheet ,View, Text } from 'react-native'
-import { useState } from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import CounterBtn from './CounterBtn';
 import Colors from '../constants/colors';
 
-export default function QuantityCounter() {
-  const [quantity, setQuantity] = useState(1)
+export default function QuantityCounter({quantity, setQuantity}) {
 
   const addHandler= ()=>{
     setQuantity(prev=> prev+1)
   }
   const subsHandler= ()=>{
-    if (quantity === 1)
-      return
+    if (quantity === 1) return
     setQuantity(prev=> prev-1)
   }
 

@@ -7,7 +7,7 @@ import Colors from '../constants/colors';
 import Title from './Title';
 import ProductPriceRate from './ProductPriceRate';
 
-export default function ProductDetailCover({img, liked, linkTo}) {
+export default function ProductDetailCover({img, liked, linkTo, title}) {
   const goBackHandler= ()=>{
     linkTo.navigate('HomeScreen')
   }
@@ -20,11 +20,11 @@ export default function ProductDetailCover({img, liked, linkTo}) {
             <RoundBtn onPress={goBackHandler}>
               <AntDesign name="arrowleft" size={30} color="white" />
             </RoundBtn>
-            <LikeBtn liked={true} size={30} color="white" />
+            <LikeBtn favorite={liked} size={30} color="white" />
           </View>
         </Container>
         <View style={styles.cardHead}>
-          <Title style={{color: Colors.primary}}>Cappucino</Title>
+          <Title style={{color: Colors.primary}}>{title}</Title>
           <ProductPriceRate price="15.00" rate="3.5" />
         </View>
       </ImageBackground>
