@@ -4,10 +4,11 @@ import Colors from '../constants/colors'
 import { Ionicons } from '@expo/vector-icons';
 import DefaultBtn from './DefaultBtn';
 
-export default function ProductCard({title,  price, description, liked, linkTo}) {
+export default function ProductCard({title,  price, description, faved, linkTo}) {
   const navigationHandler= ()=>{
     linkTo.navigate('DetailScreen')
   }
+
   return (
     <View style={styles.cardContainer}>
       {/* card head */}
@@ -20,7 +21,12 @@ export default function ProductCard({title,  price, description, liked, linkTo})
       <View style={styles.cardBody}>
         <View style={{flexDirection: 'row', justifyContent:'space-between', alignItems:'center'}}>
           <Text style={styles.cardTitle}>{title}</Text>
-          <Ionicons name="heart" size={24} color={Colors.primary} />
+          {
+            faved?
+            <Ionicons name="heart" size={24} color={Colors.primary} />
+            :
+            <Ionicons name="heart-outline" size={24} color={Colors.primary} />
+          }
         </View>
         <View style={{padding: 8, flex: 1}}>
           <Text style={{color: Colors.secondary}}>
@@ -59,7 +65,8 @@ const styles= StyleSheet.create({
   cardTitle:{
     color: Colors.primary,
     fontSize: 24,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textTransform: 'capitalize'
   },
   cardFooter:{
     flexDirection: 'row',

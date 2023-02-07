@@ -4,19 +4,28 @@ import { View, StyleSheet, ActivityIndicator} from 'react-native'
 import Container from '../components/Container'
 import Title from '../components/Title'
 import Colors from '../constants/colors'
-import { useGetProducts, fetchData } from "../api/http";
+import { fetchRoute } from "../api/http";
 import { setProducts } from '../context/productsListSlice' 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function Loading({navigation}) {
+  const [data, setData] = useState()
   const dispatch = useDispatch()
-  const data= useGetProducts()
+  const products= useSelector((state)=> state.products.productsList)
 
   useEffect(()=>{
-    dispatch(setProducts(data));
-    console.log(data)
+    fetchRoute('products.json').then(r=> setData(r.data))
+  }, [])
+  
+  useEffect( ()=>{
+    dispatch(setProducts(data))
   }, [data])
+  
+  if (products[0]){
+    setTimeout(()=>navigation.navigate('HomeScreen'), 2000)
+  }
 
+  // console.log(data)
   return (
     <View style={styles.loading}>
       <Container>
