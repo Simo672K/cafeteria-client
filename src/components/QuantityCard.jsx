@@ -16,7 +16,8 @@ export default function QuantityCard({linkTo, data}) {
   const handelPress=()=>{
     const payload={
       ...data,
-      quantity
+      quantity,
+      id: Date.now(),
     }
 
     dispatch(addToCart(payload))

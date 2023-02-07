@@ -1,14 +1,17 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, ImageBackground, ScrollView } from "react-native";
-import Container from "../components/Container";
 import { Ionicons } from '@expo/vector-icons';
+import Container from "../components/Container";
 import Title from "../components/Title";
 import RoundBtn from "../components/RoundBtn";
 import Colors from "../constants/colors";
 import Filter from "../components/Filter";
 import ProductCard from "../components/ProductCard";
+import { useSelector } from "react-redux"
 
 export default function Home({navigation}) {
+  const productsList= useSelector((state)=> state.products.productsList)
+  console.log(productsList)
   let dummyText= "Lorem ipsum dolor sit amet, debitis obcaecati asperiores at."
   return (
     <View style={styles.home}>

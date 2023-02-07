@@ -1,16 +1,22 @@
 import { StatusBar } from 'expo-status-bar'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { View, StyleSheet, ActivityIndicator} from 'react-native'
 import Container from '../components/Container'
 import Title from '../components/Title'
 import Colors from '../constants/colors'
+import { useGetProducts, fetchData } from "../api/http";
+import { setProducts } from '../context/productsListSlice' 
+import { useDispatch } from 'react-redux'
 
 export default function Loading({navigation}) {
+  const dispatch = useDispatch()
+  const data= useGetProducts()
+
   useEffect(()=>{
-    setTimeout(function(){
-      navigation.navigate('HomeScreen');
-    }, 3000)
-  }, [])
+    dispatch(setProducts(data));
+    console.log(data)
+  }, [data])
+
   return (
     <View style={styles.loading}>
       <Container>

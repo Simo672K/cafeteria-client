@@ -6,9 +6,16 @@ import Colors from '../constants/colors';
 import DefaultBtn from '../components/DefaultBtn';
 import Title from '../components/Title';
 import CheckoutCard from '../components/CheckoutCard';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart } from '../context/cartSlice'
+
 export default function Checkout({navigation}) {
   const cart = useSelector((state)=> state.cart.cart)
+  const dispatch = useDispatch();
+
+  const cartItemDeleteHandler = (id)=>{
+    dispatch(removeFromCart(id))
+  }
 
   const returnHomeHandler=()=>{
     navigation.navigate('HomeScreen')
@@ -28,7 +35,7 @@ export default function Checkout({navigation}) {
           {
             cart&&cart.length?
             cart.map(item=>
-              <CheckoutCard key={Date.now()} item={item}/>
+              <CheckoutCard deleteHandler={cartItemDeleteHandler} key={item.id} item={item}/>
               ):
             <Text style={styles.textMuted}>Pas d'elements...</Text>
           }
